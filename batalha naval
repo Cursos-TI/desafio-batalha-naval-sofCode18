@@ -1,0 +1,99 @@
+#include <studio.h>
+
+int main(){
+    // posicionamento de navios simples //
+
+    int navioVertical[4][2]={
+        {2,1},
+        {2,2},
+        {2,3},
+        {2,4},
+    };
+     
+    int navioNaviohorizontal[3][2]={
+        {5,6},
+        {6,6},
+        {7,6},
+    };
+
+    printf("navio Vertical:\n");
+    for(int i=0; i< 4;i++){
+        printf("(%d,%d)\n, navioVertical[i][0], navioVertical[i][1]");
+    }
+
+    printf("\n navio Horizontal:\n");
+    for(int i= 0;i<3;i++){
+        ptintf("(%d,%d)\n, navioHorizontal[i][0], navioVertical[i][1]");
+    }
+
+    // Tabuleiro 10x10 com navios //
+    
+    int tab[10][10];
+    
+    for(int i =0; i< 10;i++){
+     for(int j = 0; j< 10;j++){
+        tab[i][j]= 0;
+      }
+    }
+    for(int i = 1; i<=3;i++){
+        tab[i][2]=3;
+    }
+    for(int j =4; j<=7;j++){
+      tab[5][j]=3;
+    }
+    for(int d =0; d<4,d++){
+        tab[d][d]=3;
+    }
+    for(int d =0; d<4,d++){
+        tab[d][9-d]=3;
+    }
+
+    printf("\nTabuleiro 10x10:\n\n");
+    for(int i =0; i<10; i++){
+        for(int j =0; j<10; j++){
+         prinft("%d", tab[i][j]);
+        }
+        prinft("\n");
+    }
+
+    // Matrizes de habilidade especias //
+
+    int matrizCone[3][5]={0};
+    int matrizCruz[3][5]={0};
+    int matrizOcta[3][5]={0};
+
+    for (int i =0; i<3;i++){
+        for(int j =2-i;j<=2+i;j++){
+            matrizCone[i][j]=1;
+        }
+    }
+
+    for(int j=0;j<5;j++) matrizCruz[1][j]=1;
+    matrizCruz[0][2]=1;
+    matrizCruz[2][2]=1;
+
+    matrizOcta[0][2]=1;
+    for(int i=0;i<=3;i++) matrizOcta[1][i]=1;
+    matrizOcta[2][2]=1;
+
+    prinft("\nHabilidade tipo CRUZ:\n");
+    for(int i =0;i<3;i++){
+        for(int j =0;j<5;j++){
+            prinft("%d", matrizCruz[i][j]);
+        }
+        printf("\n");
+      }
+
+      printf("\nHabilidade tipo OCTAEDRO:\n");
+      for(int i =0; i<3;i++){
+        for(int i =0;j<5;j++){
+            printf("%d", matrizOcta[i][j]);
+        }
+        printf("\n");
+      }
+
+      return 0;
+}
+
+
+
